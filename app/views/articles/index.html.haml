@@ -8,5 +8,6 @@
             = article.content
         .card-action
           %a{:href => "#"} show
-          = link_to 'edit', edit_article_path(article.id), method: :get
-          = link_to 'delete', article_path(article.id), method: :delete
+          - if user_signed_in? && current_user.id == article.user_id
+            = link_to 'edit', edit_article_path(article.id), method: :get
+            = link_to 'delete', article_path(article.id), method: :delete
