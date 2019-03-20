@@ -67,3 +67,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'sprockets', '3.7.2'
   gem 'haml-rails'
   gem 'erb2haml'
+  gem 'devise'
