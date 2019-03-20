@@ -7,11 +7,36 @@ class ArticlesController < ApplicationController
   end
 
   def new
-
+    @article = Article.new
   end
 
   def create
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 
+  def destroy
+    article = Article.find(params[:id])
+    article.destroy if    article.user_id == current_user.id
+    redirect_to root_path
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+
+  end
+
+
+  private
+  def article_params
+    params.require(:article).permit(:content, :user_id)
   end
 
 end
