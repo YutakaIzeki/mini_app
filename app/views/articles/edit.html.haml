@@ -3,7 +3,7 @@
     .chat-group-form__field--left
       = f.label :content, class: 'chat-group-form__label'
     .chat-group-form__field--right
-      = f.text_field :content, class: 'chat__group_name chat-group-form__input', placeholder: '本文'
+      = f.text_field :content, class: 'chat__group_name chat-group-form__input', value: @article.content
       = f.hidden_field :user_id, value: current_user.id
 
   .chat-group-form__field.clearfix
